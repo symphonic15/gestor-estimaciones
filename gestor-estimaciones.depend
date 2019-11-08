@@ -1,22 +1,25 @@
 # depslib dependency file v1.0
-1572041113 source:d:\gestor-estimaciones\main.c
+1572553750 source:d:\gestor-estimaciones\main.c
 	<stdio.h>
 	<stdlib.h>
 	"modelos.h"
 	"controladores.h"
 	"vistas.h"
 
-1572040920 d:\gestor-estimaciones\modelos.h
+1573170674 d:\gestor-estimaciones\modelos.h
 
-1572041018 d:\gestor-estimaciones\controladores.h
+1573161804 d:\gestor-estimaciones\controladores.h
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 	"modelos.h"
 
-1572041054 d:\gestor-estimaciones\vistas.h
+1573161811 d:\gestor-estimaciones\vistas.h
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 	"modelos.h"
+	"controladores.h"
 
 1571861228 source:d:\gestor-estimaciones\tda arbol\arbol.c
 	"arbol.h"
@@ -26,9 +29,9 @@
 	<stdlib.h>
 	<time.h>
 
-1572041096 source:d:\gestor-estimaciones\vistas.c
+1573160839 source:d:\gestor-estimaciones\vistas.c
 	"vistas.h"
 
-1572038911 source:d:\gestor-estimaciones\controladores.c
+1573161275 source:d:\gestor-estimaciones\controladores.c
 	"controladores.h"
 

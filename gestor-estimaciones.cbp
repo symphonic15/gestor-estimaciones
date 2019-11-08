@@ -31,9 +31,18 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="controladores.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="controladores.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="modelos.h" />
+		<Unit filename="vistas.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="vistas.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

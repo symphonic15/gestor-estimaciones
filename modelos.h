@@ -2,17 +2,27 @@
 #define MODELOS_H_INCLUDED
 
 typedef struct {
+    int id;
+    int idProyecto;
+    int estado;
     char nombre[20];
     char descripcion[255];
     int horas;
-    struct Tarea* siguiente;
 } Tarea;
 
 typedef struct {
+    Tarea tarea;
+    struct nodoTarea* siguiente;
+} nodoTarea;
+
+typedef struct {
+    int id;
+    int idUsuario;
+    int estado;
     char nombre[20];
     char descripcion[255];
     int valorHora;
-    struct Tarea* tareas;
+    struct nodoTarea* tareas;
 } Proyecto;
 
 typedef struct {

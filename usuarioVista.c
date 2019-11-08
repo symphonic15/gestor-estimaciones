@@ -1,4 +1,4 @@
-#include "vistas.h"
+#include "usuarioVista.h"
 
 void vRegistrarUsuario() {
     Usuario usuario;
@@ -27,6 +27,10 @@ Usuario vIniciarSesion() {
     user = iniciarSesion(usuario, contrasena);
 
     if(strcmp(user.usuario, "") == 0) {
-        printf("Usuario y/o contrasena incorrecta");
+        system("cls");
+        printf("Usuario y/o contrasena incorrecta. Por favor, intente nuevamente.\n\n");
+        user = vIniciarSesion();
     }
+
+    return user;
 }

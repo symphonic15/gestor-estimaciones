@@ -6,6 +6,10 @@
 
 int main()
 {
-    vIniciarSesion();
+    Usuario sesion;
+    sesion = vIniciarSesion();
+
+    printf("USUARIO SESION: %s", sesion.usuario);
+
     return 0;
 }

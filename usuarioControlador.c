@@ -23,20 +23,28 @@ Usuario buscarUsuario(char usuario[20]) {
     }
     fclose(pArchUsuarios);
 
-    if(flag == 0) user = usuarioNulo();
+    if(flag == 0) {
+        user = usuarioNulo();
+    }
 
     return user;
 }
 
 void registrarUsuario(Usuario usuario) {
+    Usuario user = usuario;
     FILE* pArchUsuarios = fopen(archUsuarios, "ab");
-    fwrite(&usuario, sizeof(Usuario), 1, pArchUsuarios);
+
+    if(pArchUsuarios) {
+        fwrite(&user, sizeof(Usuario), 1, pArchUsuarios);
+    }
+
+    fclose(pArchUsuarios);
 }
 
 Usuario iniciarSesion(char usuario[20], char contrasena[20]) {
     Usuario user = buscarUsuario(usuario);
 
-    // Si el usuario existe
+    // Si el usuario no existe o la contrasena es incorrecta
     if(strcmp(user.usuario, "") == 0 || strcmp(user.contrasena, contrasena) != 0) {
         user = usuarioNulo();
     }
