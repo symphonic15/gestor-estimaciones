@@ -1,10 +1,12 @@
 #include "tareaControlador.h"
 
+/* HELPERS */
+
 nodoTarea* inicLista() {
     return NULL;
 }
 
-int buscarUltimoIdTar() {
+int buscarUltimoIdTarea() {
     int id = 0;
     FILE* pArchTareas = fopen(archTareas, "rb");
     Tarea tarea;
@@ -17,8 +19,29 @@ int buscarUltimoIdTar() {
     return id;
 }
 
+int buscarTareaPorId(int id) {
+    Tarea tarea;
+    int posicion = -1;
+    int flag = 0;
+
+    FILE* pArchTareas = fopen(archTareas, sizeof(Tarea));
+    if(pArchTareas) {
+        while(fread(&tarea, sizeof(Tarea), 1, pArchTareas) && flag == 0) {
+            if(tarea.id == id) {
+                posicion = ftell(pArchTareas)-sizeof(Tarea);
+                flag == 1;
+            }
+        }
+    }
+    fclose(pArchTareas);
+
+    return posicion;
+}
+
+/* CONTROLADORES */
+
 void crearTarea(Tarea t) {
-    t.id = 1 + buscarUltimoIdTar();
+    t.id = 1 + buscarUltimoIdTarea();
     t.estado = 1;
     FILE* pArchTareas = fopen(archTareas, "ab");
 
@@ -29,30 +52,30 @@ void crearTarea(Tarea t) {
     fclose(pArchTareas);
 }
 
-int buscarTareaId(int id) {
-    Tarea tarea;
-    int posicion = -1;
-    int flag = 0;
+void modificarTarea(int id, Tarea t) {
+    int posicion;
+    FILE* pArchTareas;
 
-    FILE* pArchTareas = fopen(archTareas, sizeof(Tarea));
-    if(pArchTareas) {
-        while(fread(&tarea, sizeof(Tarea), 1, pArchTareas) && flag == 0) {
-            if(tarea.id == id) {
-                posicion = ftell(pArchTareas);
-            }
+    posicion = buscarTareaPorId(id);
+
+    if(posicion >= 0) {
+        pArchTareas = fopen(archTareas, "rb+");
+        if(pArchTareas) {
+            fseek(pArchTareas, posicion, SEEK_SET);
+            fwrite(&t, sizeof(Tarea), 1, pArchTareas);
         }
+        fclose(pArchTareas);
     }
-    fclose(pArchTareas);
-
-    return posicion;
 }
 
-void borrarTarea(int id) {
-    int posicion = buscarTareaId(id);
+void eliminarTarea(Tarea t) {
+    int posicion;
     t.estado = -1;
     FILE* pArchTareas;
 
-    if(posicion != -1) {
+    posicion = buscarTareaPorId(t.id);
+
+    if(posicion >= -1) {
         pArchTareas = fopen(archTareas, "rb+");
         if(pArchTareas) {
             fseek(pArchTareas, posicion, SEEK_SET);
@@ -90,17 +113,19 @@ nodoTarea* insertarTareaLista(nodoTarea* lista, nodoTarea* nodo) {
     return lista;
 }
 
-void listaTareas(Proyecto p) {
+nodoTarea* listaTareas(int idProyecto) {
     nodoTarea* lista;
     Tarea tarea;
     FILE* pArchTareas = fopen(archTareas, "rb");
 
     if(pArchTareas) {
         while(fread(&tarea, sizeof(Tarea), 1, pArchTareas)) {
-            if(tarea.idProyecto == p.id && tarea.estado == 1) {
+            if(tarea.idProyecto == idProyecto && tarea.estado == 1) {
                 lista = insertarTareaLista(lista, crearNodoTarea(tarea));
             }
         }
     }
     fclose(pArchTareas);
+
+    return lista;
 }

@@ -1,8 +1,9 @@
 #include "usuarioVista.h"
 
-void vRegistrarUsuario() {
+void vRegistrarUsuario(int rol) {
     Usuario usuario;
 
+    usuario.rol = rol;
     printf("Nombre de usuario:\n");
     gets(usuario.usuario);
     printf("Contrasena:\n");

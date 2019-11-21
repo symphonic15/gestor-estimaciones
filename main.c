@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "modelos.h"
-#include "controladores.h"
-#include "vistas.h"
+#include "interfaz.h"
 
 int main()
 {

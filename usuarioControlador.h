@@ -7,6 +7,7 @@
 #include "modelos.h"
 
 #define archUsuarios "usuarios.dat"
+#define archProyectos "proyectos.dat"
 #define archTareas "tareas.dat"
 
 Usuario usuarioNulo();

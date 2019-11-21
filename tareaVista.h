@@ -5,7 +5,17 @@
 #include <stdlib.h>
 #include <string.h>
 #include "modelos.h"
-#include "controladores.h"
+#include "tareaControlador.h"
 
-Tarea vCrearTarea(Proyecto p);
+#define archUsuarios "usuarios.dat"
+#define archProyectos "proyectos.dat"
+#define archTareas "tareas.dat"
+
+void mostrarTarea(Tarea t);
+
+void vCrearTarea(int idProyecto);
+void vModificarTarea(Tarea t);
+void vEliminarTarea(Tarea t);
+void vListaTareas(int idProyecto);
+
 #endif // TAREA_VISTAS_H_INCLUDED

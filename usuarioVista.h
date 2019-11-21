@@ -5,9 +5,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include "modelos.h"
-#include "controladores.h"
+#include "usuarioControlador.h"
 
-void vRegistrarUsuario();
+#define archUsuarios "usuarios.dat"
+#define archProyectos "proyectos.dat"
+#define archTareas "tareas.dat"
+
+void vRegistrarUsuario(int rol);
 Usuario vIniciarSesion();
 Tarea vCrearTarea(Proyecto p);
 #endif // USUARIO_VISTA_H_INCLUDED

@@ -35,3 +35,109 @@
 1573161275 source:d:\gestor-estimaciones\controladores.c
 	"controladores.h"
 
+1573155840 source:f:\utn\programacion ii\gestor_estimaciones\gestor-estimaciones\main.c
+	<stdio.h>
+	<stdlib.h>
+	"modelos.h"
+	"controladores.h"
+	"vistas.h"
+
+1573155842 f:\utn\programacion ii\gestor_estimaciones\gestor-estimaciones\modelos.h
+
+1573155842 source:f:\utn\programacion ii\gestor_estimaciones\gestor-estimaciones\proyectovista.c
+	"proyectoVista.h"
+
+1573237623 f:\utn\programacion ii\gestor_estimaciones\gestor-estimaciones\proyectovista.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"modelos.h"
+	"proyectoControlador.h"
+
+1573237614 f:\utn\programacion ii\gestor_estimaciones\gestor-estimaciones\proyectocontrolador.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"modelos.h"
+
+1573237547 source:f:\utn\programacion ii\gestor_estimaciones\gestor-estimaciones\usuariocontrolador.c
+	"usuarioControlador.h"
+
+1573237643 f:\utn\programacion ii\gestor_estimaciones\gestor-estimaciones\usuariocontrolador.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"modelos.h"
+
+1573155842 source:f:\utn\programacion ii\gestor_estimaciones\gestor-estimaciones\proyectocontrolador.c
+	"proyectoControlador.h"
+
+1573155838 source:f:\utn\programacion ii\gestor_estimaciones\gestor-estimaciones\usuariovista.c
+	"usuarioVista.h"
+
+1573237719 f:\utn\programacion ii\gestor_estimaciones\gestor-estimaciones\usuariovista.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"modelos.h"
+	"usuarioControlador.h"
+
+1573220040 source:d:\08-11\proyectocontrolador.c
+	"proyectoControlador.h"
+
+1573220040 d:\08-11\proyectocontrolador.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"modelos.h"
+
+1573251100 d:\08-11\modelos.h
+
+1573220038 source:d:\08-11\proyectovista.c
+	"proyectoVista.h"
+
+1573220040 d:\08-11\proyectovista.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"modelos.h"
+	"proyectoControlador.h"
+
+1573220042 source:d:\08-11\tareacontrolador.c
+	"tareaControlador.h"
+
+1573220044 d:\08-11\tareacontrolador.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"modelos.h"
+
+1573220042 source:d:\08-11\tareavista.c
+	"tareaVista.h"
+
+1573220044 d:\08-11\tareavista.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"modelos.h"
+	"tareaControlador.h"
+
+1573220044 source:d:\08-11\usuariocontrolador.c
+	"usuarioControlador.h"
+
+1573220044 d:\08-11\usuariocontrolador.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"modelos.h"
+
+1573251245 source:d:\08-11\usuariovista.c
+	"usuarioVista.h"
+
+1573251936 d:\08-11\usuariovista.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"modelos.h"
+	"usuarioControlador.h"
+

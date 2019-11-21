@@ -31,18 +31,34 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="controladores.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="controladores.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="modelos.h" />
-		<Unit filename="vistas.c">
+		<Unit filename="proyectoControlador.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="vistas.h" />
+		<Unit filename="proyectoControlador.h" />
+		<Unit filename="proyectoVista.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="proyectoVista.h" />
+		<Unit filename="tareaControlador.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tareaControlador.h" />
+		<Unit filename="tareaVista.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tareaVista.h" />
+		<Unit filename="usuarioControlador.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="usuarioControlador.h" />
+		<Unit filename="usuarioVista.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="usuarioVista.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

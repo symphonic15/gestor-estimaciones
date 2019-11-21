@@ -27,6 +27,7 @@ typedef struct {
 
 typedef struct {
     int id;
+    int rol;
     char usuario[20];
     char contrasena[20];
     char nombreApellido[20];
