@@ -12,6 +12,7 @@
 #define archTareas "tareas.dat"
 
 Proyecto vCrearProyecto();
+void vModificarProyecto(int id);
 void vEliminarProyecto(Proyecto a);
 void vModificarNombreProyecto(Proyecto a);
 void vModificarDescripcionProyecto(Proyecto a);

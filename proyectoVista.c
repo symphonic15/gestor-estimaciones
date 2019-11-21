@@ -14,6 +14,28 @@ Proyecto vCrearProyecto(int idUsuario){ /// VISTA CREAR PROYECTO
     return aux;
 }
 
+void vModificarProyecto(int id){
+    int res;
+    Proyecto pro = buscarPorId(id);
+    switch(res){
+        case 1:
+            vModificarNombreProyecto(pro);
+        break;
+        case 2:
+            vModificarDescripcionProyecto(pro);
+            break;
+        case 3:
+            vModificarValorProyecto(pro);
+            break;
+        case 4:
+            eliminarProyecto(pro);
+            break;
+        case 5:
+            printf("menu volver"); /// volver al menu
+    }
+    persistirProyecto(pro);
+}
+
 void vEliminarProyecto(Proyecto a){ /// VISTA ELIMINA PROYECTO
     char nom;
     printf("\n Eliminar proyecto press s ");

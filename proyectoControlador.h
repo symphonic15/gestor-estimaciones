@@ -12,6 +12,10 @@
 
 int buscarUltimoIdPro();
 void crearProyecto(Proyecto aux);
+Proyecto proyectoNulo();
+Proyecto buscarPorId(int id);
+void persistirProyecto(Proyecto a);
+int buscarPosIdProyecto(int id);
 int validarProyecto(Proyecto a);
 Proyecto buscarProyectoNom(char nom[20]);
 void eliminarProyecto(Proyecto a);

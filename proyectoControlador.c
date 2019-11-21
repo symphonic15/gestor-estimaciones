@@ -22,7 +22,44 @@ Proyecto proyectoNulo(){ /// RETORNA PROYECTO VACIO
 
     return pro;
 }
+Proyecto buscarPorId(int id){ ///
+    int pos = buscarPosIdProyecto(id);
+    FILE* pArchProyecto = fopen(archProyectos, "rb");
+    Proyecto pro;
+    if(pArchProyecto){
+        fseek(pArchProyecto, pos * sizeof(Proyecto), SEEK_SET);
+        fread(&pro, sizeof(Proyecto), 1, pArchProyecto);
+    }
+    fclose(pArchProyecto);
+    return pro;
+}
 
+void persistirProyecto(Proyecto a){ /// PERSISTE EL PROYECTO
+    int pos = buscarPosIdProyecto(a.id);
+    FILE* pArchProyectos = fopen(archProyectos, "wb");
+    Proyecto pro;
+    if(pArchProyectos){
+        fseek(pArchProyectos, pos * sizeof(Proyecto), SEEK_SET);
+        fwrite(&a, sizeof(Proyecto), 1, pArchProyectos);
+    }
+    fclose(pArchProyectos);
+}
+
+int buscarPosIdProyecto(int id){
+    FILE* pArchProyecto =  fopen(archProyectos, "rb");
+    Proyecto pro;
+    int pos = -1, flag = 0;
+    if(pArchProyecto){
+        while(fread(&pro, sizeof(Proyecto), 1, pArchProyecto) && flag == 0){/// mayor a cero?
+                if(pro.id==id){
+                    flag =1;
+                    pos = ftell(pArchProyecto) - sizeof(Proyecto);
+                }
+        }
+    }
+    fclose(pArchProyecto);
+    return pos;
+}
 void crearProyecto(Proyecto aux){ /// CREA UN PROYECTO EN EL ARCHIVO
     FILE* pArchProyectos = fopen(archProyectos, "ab");
     aux.id = 1+ buscarUltimoIdPro();
@@ -32,7 +69,7 @@ void crearProyecto(Proyecto aux){ /// CREA UN PROYECTO EN EL ARCHIVO
     fclose(pArchProyectos);
 }
 
-int validarProyecto(Proyecto a){ /// CONTROLA EXISTENCI DE PROYECTO
+int validarProyecto(Proyecto a){ /// CONTROLA EXISTENCIA DE PROYECTO
     FILE* pArchProyectos = fopen(archProyectos, "rb");
     Proyecto pro;
     int flag = 0;
