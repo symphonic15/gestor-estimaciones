@@ -1,0 +1,95 @@
+# depslib dependency file v1.0
+1574295783 source:c:\users\mauro\desktop\inter\prueba\gotoxy.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
+1574264655 source:c:\users\mauro\desktop\inter\prueba\listaenlazada.c
+	"listaEnlazada.h"
+
+1574264560 c:\users\mauro\desktop\inter\prueba\listaenlazada.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Boton.h"
+
+1574295699 source:c:\users\mauro\desktop\inter\prueba\main.c
+	<stdio.h>
+	<stdlib.h>
+	"int/interface.h"
+
+1574295612 source:c:\users\mauro\desktop\inter\prueba\interface.c
+	"interface.h"
+
+1574295612 c:\users\mauro\desktop\inter\prueba\interface.h
+	"gotoxy.h"
+	"lista2.h"
+	"Boton.h"
+
+1491399896 c:\users\mauro\desktop\inter\prueba\gotoxy.h
+
+1574295783 c:\users\mauro\desktop\inter\prueba\boton.h
+
+1574295783 source:c:\users\mauro\desktop\inter\prueba\boton.c
+	"Boton.h"
+
+1574295783 source:c:\users\mauro\desktop\inter\prueba\lista2.c
+	"lista2.h"
+
+1574295783 c:\users\mauro\desktop\inter\prueba\lista2.h
+	<stdio.h>
+	<stdlib.h>
+	"Boton.h"
+
+1574295612 c:\users\mauro\desktop\inter\prueba\int\interface.h
+	"gotoxy.h"
+	"lista2.h"
+	"Boton.h"
+
+1491399896 c:\users\mauro\desktop\inter\prueba\int\gotoxy.h
+
+1574295298 c:\users\mauro\desktop\inter\prueba\int\lista2.h
+	<stdio.h>
+	<stdlib.h>
+	"Boton.h"
+
+1574295159 c:\users\mauro\desktop\inter\prueba\int\boton.h
+
+1574278016 source:f:\utn\programacion ii\gestor_estimaciones\gestor-estimaciones\interfaz\int\boton.c
+	"Boton.h"
+
+1574278018 f:\utn\programacion ii\gestor_estimaciones\gestor-estimaciones\interfaz\int\boton.h
+
+1574278018 source:f:\utn\programacion ii\gestor_estimaciones\gestor-estimaciones\interfaz\int\gotoxy.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
+1574278020 source:f:\utn\programacion ii\gestor_estimaciones\gestor-estimaciones\interfaz\int\lista2.c
+	"lista2.h"
+
+1574278020 f:\utn\programacion ii\gestor_estimaciones\gestor-estimaciones\interfaz\int\lista2.h
+	<stdio.h>
+	<stdlib.h>
+	"Boton.h"
+
+1574278020 source:f:\utn\programacion ii\gestor_estimaciones\gestor-estimaciones\interfaz\int\textin.c
+	"Textin.h"
+
+1574278020 f:\utn\programacion ii\gestor_estimaciones\gestor-estimaciones\interfaz\int\textin.h
+
+1574304019 source:f:\utn\programacion ii\gestor_estimaciones\gestor-estimaciones\interfaz\main.c
+	<stdio.h>
+	<stdlib.h>
+	"int/interface.h"
+
+1574278018 f:\utn\programacion ii\gestor_estimaciones\gestor-estimaciones\interfaz\int\interface.h
+	"gotoxy.h"
+	"lista2.h"
+	"Boton.h"
+
+1574278018 f:\utn\programacion ii\gestor_estimaciones\gestor-estimaciones\interfaz\int\gotoxy.h
+
+1574303955 source:f:\utn\programacion ii\gestor_estimaciones\gestor-estimaciones\interfaz\int\interface.c
+	"interface.h"
+

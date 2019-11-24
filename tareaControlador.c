@@ -1,12 +1,22 @@
 #include "tareaControlador.h"
 
-/* HELPERS */
+/**< HELPERS */
 
-nodoTarea* inicLista() {
-    return NULL;
+/* Devuelve una tarea con datos nulos */
+Tarea tareaNula() {
+    Tarea tarea;
+    tarea.id = -1;
+    tarea.idProyecto = -1;
+    tarea.estado = -1;
+    tarea.horas = -1;
+    strcpy(tarea.nombre, "");
+    strcpy(tarea.descripcion, "");
+
+    return tarea;
 }
 
-int buscarUltimoIdTarea() {
+/* Devuelve el id de la ultima tarea creada */
+int tareaUltimoId() {
     int id = 0;
     FILE* pArchTareas = fopen(archTareas, "rb");
     Tarea tarea;
@@ -19,14 +29,33 @@ int buscarUltimoIdTarea() {
     return id;
 }
 
-int buscarTareaPorId(int id) {
+/* Busca tarea por su id y la devuelve */
+Tarea tareaBuscarPorId(int id) {
+    Tarea tarea = tareaNula();
+    int flag = 0;
+
+    FILE* pArchTareas = fopen(archTareas, "rb");
+    if(pArchTareas) {
+        while(flag == 0 && fread(&tarea, sizeof(Tarea), 1, pArchTareas)) {
+            if(tarea.id == id) {
+                flag == 1;
+            }
+        }
+    }
+    fclose(pArchTareas);
+
+    return tarea;
+}
+
+/* Busca tarea por su id y devuelve su posicion en el archivo */
+int tareaBuscarPosPorId(int id) {
     Tarea tarea;
     int posicion = -1;
     int flag = 0;
 
-    FILE* pArchTareas = fopen(archTareas, sizeof(Tarea));
+    FILE* pArchTareas = fopen(archTareas, "rb");
     if(pArchTareas) {
-        while(fread(&tarea, sizeof(Tarea), 1, pArchTareas) && flag == 0) {
+        while(flag == 0 && fread(&tarea, sizeof(Tarea), 1, pArchTareas)) {
             if(tarea.id == id) {
                 posicion = ftell(pArchTareas)-sizeof(Tarea);
                 flag == 1;
@@ -38,53 +67,12 @@ int buscarTareaPorId(int id) {
     return posicion;
 }
 
-/* CONTROLADORES */
-
-void crearTarea(Tarea t) {
-    t.id = 1 + buscarUltimoIdTarea();
-    t.estado = 1;
-    FILE* pArchTareas = fopen(archTareas, "ab");
-
-    if(pArchTareas) {
-        fwrite(&t, sizeof(Tarea), 1, pArchTareas);
-    }
-
-    fclose(pArchTareas);
+/* Inicializa una lista de tareas */
+nodoTarea* tareaInicLista() {
+    return NULL;
 }
 
-void modificarTarea(int id, Tarea t) {
-    int posicion;
-    FILE* pArchTareas;
-
-    posicion = buscarTareaPorId(id);
-
-    if(posicion >= 0) {
-        pArchTareas = fopen(archTareas, "rb+");
-        if(pArchTareas) {
-            fseek(pArchTareas, posicion, SEEK_SET);
-            fwrite(&t, sizeof(Tarea), 1, pArchTareas);
-        }
-        fclose(pArchTareas);
-    }
-}
-
-void eliminarTarea(Tarea t) {
-    int posicion;
-    t.estado = -1;
-    FILE* pArchTareas;
-
-    posicion = buscarTareaPorId(t.id);
-
-    if(posicion >= -1) {
-        pArchTareas = fopen(archTareas, "rb+");
-        if(pArchTareas) {
-            fseek(pArchTareas, posicion, SEEK_SET);
-            fwrite(&t, sizeof(Tarea), 1, pArchTareas);
-        }
-        fclose(pArchTareas);
-    }
-}
-
+/* Recibe una tarea y devuelve un nodo con esta */
 nodoTarea* crearNodoTarea(Tarea t) {
     nodoTarea* nodo = malloc(sizeof(nodoTarea));
 
@@ -94,27 +82,19 @@ nodoTarea* crearNodoTarea(Tarea t) {
     return nodo;
 }
 
-nodoTarea* ultimaTareaLista(nodoTarea* lista) {
-    if(lista) {
-        while(lista->siguiente) {
-            lista = lista->siguiente;
-        }
-    }
-    return lista;
-}
-
+/* Inserta un nodo en una lista de tareas */
 nodoTarea* insertarTareaLista(nodoTarea* lista, nodoTarea* nodo) {
-    nodoTarea* ultimaTarea = ultimaTareaLista(lista);
-
     if(nodo) {
-        ultimaTarea->siguiente = nodo;
+        nodo->siguiente = lista;
     }
+    lista = nodo;
 
     return lista;
 }
 
+/* Recibe un id de proyecto y almacena en una lista todas las tareas cargadas en este */
 nodoTarea* listaTareas(int idProyecto) {
-    nodoTarea* lista;
+    nodoTarea* lista = tareaInicLista();
     Tarea tarea;
     FILE* pArchTareas = fopen(archTareas, "rb");
 
@@ -128,4 +108,54 @@ nodoTarea* listaTareas(int idProyecto) {
     fclose(pArchTareas);
 
     return lista;
+}
+
+/**< CONTROLADORES */
+
+/* Recibe una tarea y la persiste en el archivo */
+int persistirTarea(Tarea tarea) {
+    int flag = -1;
+    int pos = tareaBuscarPosPorId(tarea.id);
+
+    FILE* pArchTareas;
+
+    // Si la tarea existe, la modifico
+    if(pos > -1) {
+        pArchTareas = fopen(archTareas, "rb+");
+        if(pArchTareas) {
+            fseek(pArchTareas, pos, SEEK_SET);
+            fwrite(&tarea, sizeof(Tarea), 1, pArchTareas);
+            flag = 1;
+        }
+        fclose(pArchTareas);
+    }
+    // Si la tarea no existe, la creo
+    else {
+        pArchTareas = fopen(archTareas, "ab");
+        if(pArchTareas) {
+            fwrite(&tarea, sizeof(Tarea), 1, pArchTareas);
+            flag = 1;
+        }
+        fclose(pArchTareas);
+    }
+
+    return flag;
+}
+
+/* Recibe una nueva tarea y la guarda en el archivo */
+int crearTarea(Tarea tarea) {
+    int flag = -1;
+    tarea.id = tareaUltimoId() + 1;
+    flag = persistirTarea(tarea);
+
+    return flag;
+}
+
+/* Recibe una tarea y la deshabilita en el archivo */
+int eliminarTarea(Tarea tarea) {
+    int flag = -1;
+    tarea.estado = -1;
+    flag = persistirTarea(tarea);
+
+    return flag;
 }

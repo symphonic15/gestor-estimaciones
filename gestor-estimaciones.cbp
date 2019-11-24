@@ -31,6 +31,26 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="interfaz/Boton.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="interfaz/Boton.h" />
+		<Unit filename="interfaz/Textin.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="interfaz/Textin.h" />
+		<Unit filename="interfaz/gotoxy.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="interfaz/gotoxy.h" />
+		<Unit filename="interfaz/interface.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="interfaz/interface.h" />
+		<Unit filename="interfaz/lista2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="interfaz/lista2.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

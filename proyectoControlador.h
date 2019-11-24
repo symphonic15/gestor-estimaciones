@@ -10,19 +10,15 @@
 #define archProyectos "proyectos.dat"
 #define archTareas "tareas.dat"
 
-int buscarUltimoIdPro();
-void crearProyecto(Proyecto aux);
+int proyectosActivosCantidad(int idUsuario);
+int proyectoUltimoId();
 Proyecto proyectoNulo();
-Proyecto buscarPorId(int id);
-void persistirProyecto(Proyecto a);
-int buscarPosIdProyecto(int id);
-int validarProyecto(Proyecto a);
-Proyecto buscarProyectoNom(char nom[20]);
-void eliminarProyecto(Proyecto a);
-void modificarNombreProyecto(Proyecto a, char nombre[20]);
-void modificarDescripcionProyecto(Proyecto a, char descripcion[255]);
-void modificarValorProyecto(Proyecto a, int valor);
-void inicArrayProyectos(Proyecto a[10]);
-void archivo2ArrayProyecto(int idUser, Proyecto a[10]);
+Proyecto proyectoBuscarPorId(int id);
+int proyectoBuscarPosPorId(int id);
+void proyectoInicArray(Proyecto proyectos[10]);
+void proyectoArchivo2Array(int idUsuario, Proyecto proyectos[10]);
+int persistirProyecto(Proyecto proyecto);
+int crearProyecto(Proyecto proyecto);
+int eliminarProyecto(Proyecto proyecto);
 
 #endif // PROYECTO_CONTROLADOR_H_INCLUDED

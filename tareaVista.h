@@ -6,16 +6,21 @@
 #include <string.h>
 #include "modelos.h"
 #include "tareaControlador.h"
+#include "proyectoVista.h"
+#include "interfaz/interface.h"
 
 #define archUsuarios "usuarios.dat"
 #define archProyectos "proyectos.dat"
 #define archTareas "tareas.dat"
 
-void mostrarTarea(Tarea t);
-
+void mostrarTarea(Tarea tarea);
+void vOpcionTarea(int idProyecto, int idUsuario);
+int vMenuModificacionTar();
+void vListarTareas(int idProyecto);
 void vCrearTarea(int idProyecto);
-void vModificarTarea(Tarea t);
-void vEliminarTarea(Tarea t);
-void vListaTareas(int idProyecto);
+void vGenerarEstimacion(int idProyecto);
+void vEliminarTarea(int idProyecto);
+void vModificarTarea(int idProyecto);
+void vModificarTareaDatos(Tarea t);
 
 #endif // TAREA_VISTAS_H_INCLUDED

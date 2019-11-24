@@ -6,12 +6,14 @@
 #include <string.h>
 #include "modelos.h"
 #include "usuarioControlador.h"
+#include "interfaz/interface.h"
 
 #define archUsuarios "usuarios.dat"
 #define archProyectos "proyectos.dat"
 #define archTareas "tareas.dat"
 
-void vRegistrarUsuario(int rol);
+void vMenuUsuario();
+Usuario vRegistrarUsuario(int rol);
 Usuario vIniciarSesion();
-Tarea vCrearTarea(Proyecto p);
+
 #endif // USUARIO_VISTA_H_INCLUDED

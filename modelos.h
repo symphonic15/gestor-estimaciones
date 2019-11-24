@@ -21,18 +21,23 @@ typedef struct {
     int estado;
     char nombre[20];
     char descripcion[255];
-    int valorHora;
     struct nodoTarea* tareas;
 } Proyecto;
 
 typedef struct {
     int id;
     int rol;
+    int estado;
     char usuario[20];
     char contrasena[20];
     char nombreApellido[20];
     Proyecto proyectos[10];
     struct Usuario* siguiente;
 } Usuario;
+
+typedef struct {
+    Usuario usuario;
+    struct nodoUsuario* siguiente;
+} nodoUsuario;
 
 #endif // MODELOS_H_INCLUDED
