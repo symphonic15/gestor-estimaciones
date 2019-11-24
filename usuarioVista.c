@@ -149,7 +149,7 @@ Usuario vIniciarSesion() {
 
 /* Lista de usuarios registrados */
 void vListarUsuarios() {
-    nodoUsuario* lista = listaUsuarios();
+    nodoUsuario* lista = usuariosLista();
 
     if(lista) {
         while(lista) {
@@ -203,7 +203,7 @@ void vModificarUsuario() {
     char mensaje[80];
 
     // Selecciona el usuario a modificar
-    lista = listaUsuarios();
+    lista = usuariosLista();
 
     if(lista) {
         while(lista) {

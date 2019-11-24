@@ -56,7 +56,7 @@ void vOpcionTarea(int idProyecto, int idUsuario)
 }
 
 void vListarTareas(int idProyecto) {
-    nodoTarea* lista = listaTareas(idProyecto);
+    nodoTarea* lista = tareaListas(idProyecto);
 
     if(lista) {
         while(lista) {
@@ -92,7 +92,7 @@ void vModificarTarea(int idProyecto) {
     char mensaje[80];
 
     // Selecciona la tarea a modificar
-    lista = listaTareas(idProyecto);
+    lista = tareaListas(idProyecto);
 
     if(lista) {
         while(lista) {
@@ -195,7 +195,7 @@ void vModificarTarea(int idProyecto) {
 void vGenerarEstimacion(int idProyecto) {
     Proyecto proyecto = proyectoBuscarPorId(idProyecto);
     nodoTarea* lista = tareaInicLista();
-    lista = listaTareas(idProyecto);
+    lista = tareaListas(idProyecto);
 
     int valorHora;
     int total = 0;

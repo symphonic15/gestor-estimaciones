@@ -116,7 +116,7 @@ nodoUsuario* usuarioInicLista() {
     return NULL;
 }
 
-nodoUsuario* crearNodoUsuario(Usuario usuario) {
+nodoUsuario* usuarioCrearNodo(Usuario usuario) {
     nodoUsuario* nodo = malloc(sizeof(nodoUsuario));
 
     nodo->usuario = usuario;
@@ -125,7 +125,7 @@ nodoUsuario* crearNodoUsuario(Usuario usuario) {
     return nodo;
 }
 
-nodoUsuario* insertarUsuarioLista(nodoUsuario* lista, nodoUsuario* nodo) {
+nodoUsuario* usuarioInsertarLista(nodoUsuario* lista, nodoUsuario* nodo) {
     if(nodo) {
         nodo->siguiente = lista;
     }
@@ -134,7 +134,7 @@ nodoUsuario* insertarUsuarioLista(nodoUsuario* lista, nodoUsuario* nodo) {
     return lista;
 }
 
-nodoUsuario* listaUsuarios() {
+nodoUsuario* usuariosLista() {
     nodoUsuario* lista = usuarioInicLista();
     Usuario usuario;
     FILE* pArchUsuarios = fopen(archUsuarios, "rb");
@@ -142,7 +142,7 @@ nodoUsuario* listaUsuarios() {
     if(pArchUsuarios) {
         while(fread(&usuario, sizeof(Usuario), 1, pArchUsuarios)) {
             if(usuario.estado == 1) {
-                lista = insertarUsuarioLista(lista, crearNodoUsuario(usuario));
+                lista = usuarioInsertarLista(lista, usuarioCrearNodo(usuario));
             }
         }
     }

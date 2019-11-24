@@ -73,7 +73,7 @@ nodoTarea* tareaInicLista() {
 }
 
 /* Recibe una tarea y devuelve un nodo con esta */
-nodoTarea* crearNodoTarea(Tarea t) {
+nodoTarea* tareaCrearNodo(Tarea t) {
     nodoTarea* nodo = malloc(sizeof(nodoTarea));
 
     nodo->tarea = t;
@@ -83,7 +83,7 @@ nodoTarea* crearNodoTarea(Tarea t) {
 }
 
 /* Inserta un nodo en una lista de tareas */
-nodoTarea* insertarTareaLista(nodoTarea* lista, nodoTarea* nodo) {
+nodoTarea* tareaInsertarNodo(nodoTarea* lista, nodoTarea* nodo) {
     if(nodo) {
         nodo->siguiente = lista;
     }
@@ -93,7 +93,7 @@ nodoTarea* insertarTareaLista(nodoTarea* lista, nodoTarea* nodo) {
 }
 
 /* Recibe un id de proyecto y almacena en una lista todas las tareas cargadas en este */
-nodoTarea* listaTareas(int idProyecto) {
+nodoTarea* tareaListas(int idProyecto) {
     nodoTarea* lista = tareaInicLista();
     Tarea tarea;
     FILE* pArchTareas = fopen(archTareas, "rb");
@@ -101,7 +101,7 @@ nodoTarea* listaTareas(int idProyecto) {
     if(pArchTareas) {
         while(fread(&tarea, sizeof(Tarea), 1, pArchTareas)) {
             if(tarea.idProyecto == idProyecto && tarea.estado == 1) {
-                lista = insertarTareaLista(lista, crearNodoTarea(tarea));
+                lista = tareaInsertarNodo(lista, tareaCrearNodo(tarea));
             }
         }
     }

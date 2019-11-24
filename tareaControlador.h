@@ -15,10 +15,10 @@ Tarea tareaNula();
 int tareaUltimoId();
 Tarea tareaBuscarPorId(int id);
 int tareaBuscarPosPorId(int id);
-nodoTarea* crearNodoTarea(Tarea t);
+nodoTarea* tareaCrearNodo(Tarea t);
 nodoTarea* ultimaTareaLista(nodoTarea* lista);
-nodoTarea* insertarTareaLista(nodoTarea* lista, nodoTarea* nodo);
-nodoTarea* listaTareas(int idProyecto);
+nodoTarea* tareaInsertarNodo(nodoTarea* lista, nodoTarea* nodo);
+nodoTarea* tareaListas(int idProyecto);
 int crearTarea(Tarea tarea);
 int eliminarTarea(Tarea tarea);
 
